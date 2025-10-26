@@ -29,5 +29,34 @@ public class ClasseMetodos {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		
+	}
+	
+	public void alterarProduto(Produto produto) {
+		String sql = "UPDATE PRODUTOS SET Nome = ?, Valor = ?, Quantidade = ? WHERE idProdutos = ?";
+		
+		PreparedStatement ps = null;
+		
+		try  {
+			ps = Conexão.getConexao().prepareStatement(sql);
+            // Define os parâmetros
+            ps.setString(1, produto.getNome());
+            ps.setDouble(2, produto.getValor());
+            ps.setInt(3, produto.getQuantidade());
+            ps.setInt(4, produto.getIdProdutos()); // O ID vai no WHERE
+
+            // Executa o comando
+            int affectedRows = ps.executeUpdate();
+
+            if (affectedRows > 0) {
+                System.out.println("O Produto de ID " + produto.getIdProdutos() + " foi alterado!");
+            } else {
+                System.out.println("Nenhum Produto de ID " + produto.getIdProdutos()  + " foi encontrado!");
+            }
+
+        } catch (SQLException e) {
+        	e.printStackTrace();
+        }
+		
 	}
 }

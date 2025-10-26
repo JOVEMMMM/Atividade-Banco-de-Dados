@@ -1,8 +1,8 @@
-package Banco;
+package Encapsulamento;
 
 public class Produto {
 	//Atributos
-	private int id;
+	private int idProdutos;
 	private String Nome;
 	private Double Valor;
 	private int Quantidade;
@@ -10,20 +10,25 @@ public class Produto {
 
 	//Construtores
 	public Produto(int id, String Nome, Double Valor, int Quantidade) {
-		this.id = id;
+		this.idProdutos = idProdutos;
 		this.Nome = Nome;
         this.Valor = Valor;
         this.Quantidade = Quantidade;
     }
 
 
-	public int getId() {
-		return id;
+	public Produto() {
+		System.out.println("O produto será salvo no banco de dados.");
 	}
 
 
-	public void setId(int id) {
-		this.id = id;
+	public int getIdProdutos() {
+		return idProdutos;
+	}
+
+
+	public void setIdProdutos(int idProdutos) {
+		this.idProdutos = idProdutos;
 	}
 
 
@@ -58,6 +63,6 @@ public class Produto {
 	
 	@Override
     public String toString() {
-        return "Cliente [id=" + id + ", nome=" + Nome + ", Valor=" + Valor + ", Quantidade=" + Quantidade + "]";
+        return "Produto [id=" + idProdutos + ", nome=" + Nome + ", Valor=" + Valor + ", Quantidade=" + Quantidade + "]";
     }
 }
